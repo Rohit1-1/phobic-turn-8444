@@ -21,90 +21,42 @@ import CartNavBar from "./CartNavBar";
 import Coupon from "./Coponents/Coupon";
 import Bill from "./Coponents/Bill";
 import Item from "./Coponents/Item"
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCart, getCartdata, updateCart } from "../store/Appreducer/action";
 
 // import Adress from "./Adress";
 
 function Cart() {
-  const [data,setData] = useState([]);
-  // const [quantity, setQuantity] = useState(1);
+  const {cartdata}=useSelector((store)=>store.Appreducer);
+  const dispatch=useDispatch()
   
-  // let totalPrice = data?.reduce((a,c)=>a+(c.price1*c.quantity),0) || 0
-  // let discountPrice = data?.reduce((a,c)=>a+((c.price2-c.price1)*c.quantity),0) || 0
-
-  let totalPrice=1290
-  let discountPrice=100
+ 
   useEffect(()=>{
-    getData()   
-  },[])
+  dispatch(getCartdata())
+  },[dispatch])
+  const handleIncrease=(name,price1,price2,category,id,productId)=>{
+    const payload={name,price1,price2,orderquantity:1,category,id,productId,type:"inc"}
+     dispatch(updateCart(payload))
+  }
+  const handleDecrease=(name,price1,price2,category,id,productId)=>{
+    const payload={name,price1,price2,orderquantity:1,category,id,productId,type:"dec"}
+     dispatch(updateCart(payload))
+  }
+  const handleDelete=(id,productId,orderquantity)=>{
+    const payload={productId,orderquantity}
+     dispatch(deleteCart(id,payload))
 
+  }
+  let totalPrice;
+  let discountPrice;
+  try {
+     totalPrice = cartdata?.reduce((a,c)=>a+(c.price1*c.orderquantity),0) || 0
+     discountPrice = cartdata?.reduce((a,c)=>a+((c.price2-c.price1)*c.orderquantity),0) || 0
+  } catch (error) {
+    console.log(error);
+  }
+   
 
-  // async function removeOperation(id)
-  // {
-  //   let result = await fetch(`https://tan-real-buffalo.cyclic.app/smartphones/${id}`,{
-  //     method:'DELETE'
-  //   })
-
-  //   result = await result.json();
-  //   console.warn(result)
-  //   getData()
-  // }
-
-
-  // async function getData(){
-  //   let result = await fetch("https://tan-real-buffalo.cyclic.app/smartphones");
-  //   result = await result.json();
-  //   setData(result)
-  // }
-
-  
-const removeOperation = (id)=>{
-  return (
-    axios.delete(`http://localhost:8000/cart/${id}`).then((res)=>{
-      console.log(res)
-}).finally(()=>{
-  getData()
-})
-
-)
-       
-}
-
-const getData=()=>{
-  return axios.get("http://localhost:8000/cart").then((res)=>{
-      setData(res.data)
-     
-    })
-    
-}
-
-const incrementQuantity=(id)=>{
-  return axios.post("http://localhost:8000/cart",{
-    "id":id, 
-    "quantity":"1", 
-    "type":"inc"
-  }).finally(()=>{
-    getData()
-  })
-}
-
-const decrementQuantity=(id)=>{
-  return axios.post("http://localhost:8000/cart",{
-    "id":id, 
-    "quantity":"1", 
-    "type":"dec"
-  }).finally(()=>{
-    getData()
-  })
-}
-
-
-// const incrementQuantity=()=>{
-//   setQuantity(quantity + 1)
-// }
-
-// const decrementQuantity=()=>{
-//   setQuantity(quantity - 1)
-// }
 
   return (
     <Box backgroundColor="#f8f8f8FF">
@@ -115,16 +67,14 @@ const decrementQuantity=(id)=>{
           {/* Left section */}
           <Box>     
           <Text fontSize="16px" color="#333">
-        Items NOT Requiring Prescription ({data.length})
+        Items NOT Requiring Prescription ({cartdata.length})
        
       </Text>
-             
-            <Item data={data}
-            removeOperation={removeOperation}
-            incrementQuantity={incrementQuantity}
-            decrementQuantity={decrementQuantity}
-            
-            />
+
+   {cartdata?.map((item)=><Item name={item.name} price1={item.price1} price2={item.price2} category={item.category}
+   orderquantity={item.orderquantity} id={item._id} productId={item.productId} handleIncrease={handleIncrease}   
+   handleDecrease={handleDecrease} handleDelete={handleDelete}/> )}
+           
 
 </Box>
 

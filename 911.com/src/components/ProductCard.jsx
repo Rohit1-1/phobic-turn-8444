@@ -1,28 +1,8 @@
 import React from "react";
-import axios from "axios";
-import { useEffect, useState, useContext } from "react";
 import {
-  Box,
-  Stack,
-  Skeleton,
-  Container,
-  Alert,
-  AlertIcon,
-  AlertDescription,
-  Grid,
-  GridItem,
-  Flex,
-  Text,
-  Image,
   Button,
-  Badge,
   useToast,
-  ButtonGroup,
-  Select,
 } from "@chakra-ui/react";
-
-import { StarIcon } from "@chakra-ui/icons";
-
 import style from "../styles/ProductCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addtoCart } from "../store/Appreducer/action";
@@ -48,6 +28,7 @@ const ProductCard = ({
     let payload = {
       quantity,
       price1,
+      price2,
       name,
       image,
       category,

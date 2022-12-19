@@ -3,27 +3,23 @@ import {
   Box,
   Image,
   Text,
-  Button,
-  ButtonGroup,
-  Heading,
-  Checkbox,
-  Select,
-  Icon,
   Divider,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-
-function Item({data,removeOperation,incrementQuantity,decrementQuantity}) {
-  
+function Item({name,price1,price2,orderquantity,category,id,productId,handleIncrease,handleDecrease,handleDelete}) {
+  const handleClickplus=()=>{
+    handleIncrease(name,price1,price2,category,id,productId,)
+  }
  
+  const handleClickminus=()=>{
+    if(orderquantity!==1){
+      handleDecrease(name,price1,price2,category,id,productId,)
+    }
+    
+  }
   return (
 
-    [1,2,3].map((item)=>(
+    
         <Box>
-      
-
         <Box
         w="600px"
         bg="#fff"
@@ -44,10 +40,10 @@ function Item({data,removeOperation,incrementQuantity,decrementQuantity}) {
             
           >
             <Box>
-              <Text  w="60%" >{item.name}Refresh Tears 0.5% Bottle Of 10ml Eye Drops</Text>
+              <Text  w="60%" >{name}</Text>
             </Box>
             <Box>
-              <Text>₹{item.price1}150.84</Text>
+              <Text>₹{price1}</Text>
             </Box>
           </Box>
 
@@ -60,10 +56,10 @@ function Item({data,removeOperation,incrementQuantity,decrementQuantity}) {
             mt="8px"
           >
             <Box>
-              <Text>tube of 100 ml Face Wash</Text>
+              <Text>{category}</Text>
             </Box>
             <Box>
-              MRP <Text as="s">₹{item.price2}150.84</Text>
+              MRP <Text as="s">₹{price2}</Text>
             </Box>
           </Box>
 
@@ -74,7 +70,7 @@ function Item({data,removeOperation,incrementQuantity,decrementQuantity}) {
             mt="16px"
           >
             {/*  */}
-            <Box display="flex" mt="10px" cursor="pointer" onClick={()=>removeOperation(item.id)}>
+            <Box display="flex" mt="10px" cursor="pointer" onClick={()=>handleDelete(id,productId,orderquantity)}>
               <Image
                 mr="4px"
                 src="https://img.1mg.com/images/delete_icon.svg"
@@ -87,15 +83,15 @@ function Item({data,removeOperation,incrementQuantity,decrementQuantity}) {
              <Image
                 src="https://www.1mg.com/images/minus-cart.svg"
                 cursor="pointer" 
-                onClick={() => decrementQuantity() }
+                onClick={handleClickminus}
               />
               <Text color="#212121" fontSize="14px" mx="4px">
-                {item.quantity}
+                {orderquantity}
               </Text>
               <Image 
                 src="https://www.1mg.com/images/plus-cart.svg"
                 cursor="pointer"
-                onClick={() => incrementQuantity() }
+                onClick={handleClickplus}
               />
             </Box>
             
@@ -103,23 +99,10 @@ function Item({data,removeOperation,incrementQuantity,decrementQuantity}) {
           
         </Box>
 
-        
-
-        
-
-    
       </Box>
-      
-
       
       <Divider/>
     </Box>
-
-))
-
-     
-
-
     
   );
 }

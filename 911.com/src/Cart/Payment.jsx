@@ -4,27 +4,46 @@ import {
   Image,
   Text,
   Button,
-  ButtonGroup,
-  Heading,
-  Checkbox,
-  Select,
-  Icon,
-  Link,
   useToast,
   Tabs, TabList, TabPanels, Tab, TabPanel, Divider,Input
 } from "@chakra-ui/react";
-import { ChevronRightIcon, InfoOutlineIcon, LockIcon } from "@chakra-ui/icons";
-import { MdLocationOn } from "react-icons/md";
-
 import CartNavBar from "./CartNavBar";
-import Coupon from "./Coponents/Coupon";
 import Bill from "./Coponents/Bill";
-import Item from "./Coponents/Item"
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { orderplacedd } from "../store/Appreducer/action";
 
-import Adress from "./Adress";
 
 function Payment() {
     const toast = useToast()
+    const navigate=useNavigate()
+    const dispatch=useDispatch()
+    const handleclick=()=>{
+      dispatch(orderplacedd()).then((res)=>{
+        if(res==="Order Placed"){
+          toast({
+            title: 'Order Placed successfully',
+            status: 'success',
+            position: 'top',
+            duration: 5000,
+            isClosable: true,
+          })
+          navigate('/')
+        }
+        else{
+          toast({
+            title: 'Something went wrong',
+            status: 'error',
+            position: 'top',
+            duration: 5000,
+            isClosable: true,
+          })
+        }
+      }).catch((err)=>{
+   console.log(err);
+      })
+      
+    }
   return (
     <Box backgroundColor="#f8f8f8FF">
       <CartNavBar />
@@ -161,14 +180,7 @@ function Payment() {
                   fontWeight="400"
                   fontSize="16px"
                   h="50px" 
-                  onClick={() =>
-                    toast({
-                      title: 'Order Placed successfully',
-                      status: 'success',
-                      duration: 9000,
-                      isClosable: true,
-                    })
-                  }
+                  onClick={handleclick}
                 >
                  PLACE ORDER
                 </Button>

@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     Box,
-    Image,
     Text,
-    Button,
-    ButtonGroup,
-    Heading,
-    Checkbox,
-    Select,
-    Icon,
     Divider
   } from "@chakra-ui/react";
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartdata } from '../../store/Appreducer/action';
 
-function Bill({totalPrice,discountPrice}) {
+function Bill() {
+  const {cartdata}=useSelector((store)=>store.Appreducer);
+  const dispatch=useDispatch()
+  useEffect(()=>{
+  dispatch(getCartdata())
+  },[dispatch])
+  console.log(cartdata);
+  let totalPrice;
+  let discountPrice;
+  try {
+     totalPrice = cartdata?.reduce((a,c)=>a+(c.price1*c.orderquantity),0) || 0
+     discountPrice = cartdata?.reduce((a,c)=>a+((c.price2-c.price1)*c.orderquantity),0) || 0
+  } catch (error) {
+    console.log(error);
+  }
+   
+  console.log(totalPrice,discountPrice);
   return (
     <Box mt="16px" shadow="0 1px 2px 0 rgb(0 0 0 / 20%)"  borderRadius="2px">
   <Box
@@ -33,7 +44,7 @@ function Bill({totalPrice,discountPrice}) {
     >
         
             <Box ><Text>Item Total(MRP)</Text></Box>
-            <Box><Text>₹{totalPrice}1280</Text></Box>
+            <Box><Text>₹{totalPrice}</Text></Box>
             
     </Box>
     {/* <Divider/> */}
@@ -46,7 +57,7 @@ function Bill({totalPrice,discountPrice}) {
     >
         
             <Box ><Text>Price Discount</Text></Box>
-            <Box><Text>-₹{discountPrice}100</Text></Box>
+            <Box><Text>-₹{discountPrice}</Text></Box>
             
     </Box>
     <Divider />
@@ -71,8 +82,8 @@ function Bill({totalPrice,discountPrice}) {
     >
         
             <Box ><Text>To be paid</Text></Box>
-            <Box><Text>₹1180</Text></Box>
-            {/* {totalPrice-discountPrice} */}
+            <Box><Text>₹{totalPrice-discountPrice}</Text></Box>
+            {/*  */}
             
     </Box>
 
@@ -87,7 +98,7 @@ function Bill({totalPrice,discountPrice}) {
     >
         
             <Box ><Text>Total Savings</Text></Box>
-            <Box color="#1aab2a" fontSize="14px" fontWeight={700} ><Text>₹{discountPrice}100</Text></Box>
+            <Box color="#1aab2a" fontSize="14px" fontWeight={700} ><Text>₹{discountPrice}</Text></Box>
             
     </Box>
 

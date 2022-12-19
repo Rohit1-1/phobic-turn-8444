@@ -2,15 +2,22 @@ import { Box, Flex,  Image, Input, Text, } from '@chakra-ui/react';
 import {BsCart3} from 'react-icons/bs';
 import {IoIosSearch} from 'react-icons/io';
 import React from 'react'
-import { Link as BrowseLink, NavLink, useNavigate} from 'react-router-dom';
+import { NavLink, useNavigate} from 'react-router-dom';
 import logo from '../assets/logo.png'
 import style from '../styles/Navbar.module.css'
 import {SlUser} from 'react-icons/sl'
 import { Dropdown } from './Dropdown';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getCartdata } from '../store/Appreducer/action';
 
 const Navbar = () => {
   const {isAuth}=useSelector((store)=>store.Authreducer)
+  const {cartdata}=useSelector((store)=>store.Appreducer)
+  const dispatch=useDispatch();
+  useEffect(()=>{
+   dispatch(getCartdata())
+  },[dispatch])
   const navigate=useNavigate()
   return (
   <Box className={style.nav}>
@@ -23,9 +30,9 @@ const Navbar = () => {
            </Flex>
 
 
-           <Box>{isAuth?<SlUser/>:<NavLink to={'/signup'}>Login / Signup</NavLink>}</Box>
+           <Box>{isAuth?<SlUser size='24px'/>:<NavLink to={'/signup'}>Login / Signup</NavLink>}</Box>
            <Box><NavLink to='/ayur' state={'ayurvedic'}>Offers</NavLink></Box>
-           <Box><NavLink to={'/cart'}><BsCart3 size='21px'/></NavLink></Box>
+           <Box className={style.cart_cont}><NavLink to={'/cart'}><BsCart3 size='26px'/><div className={style.cartquantity}>{cartdata?.length}</div></NavLink></Box>
            <Box><Text>NeedHelp</Text></Box>
        </Flex>
     </Box>

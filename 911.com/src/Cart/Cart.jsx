@@ -28,10 +28,11 @@ function Cart() {
   const [data,setData] = useState([]);
   // const [quantity, setQuantity] = useState(1);
   
-  let totalPrice = data.reduce((a,c)=>a+(c.price1*c.quantity),0) || 0
-  let discountPrice = data.reduce((a,c)=>a+((c.price2-c.price1)*c.quantity),0) || 0
+  // let totalPrice = data?.reduce((a,c)=>a+(c.price1*c.quantity),0) || 0
+  // let discountPrice = data?.reduce((a,c)=>a+((c.price2-c.price1)*c.quantity),0) || 0
 
-
+  let totalPrice=1290
+  let discountPrice=100
   useEffect(()=>{
     getData()   
   },[])
@@ -167,7 +168,7 @@ const decrementQuantity=(id)=>{
                     </Text>
                   </Box>
                 </Box>
-                <a href="/Adress">
+                <a href="/payment">
                 <Button
                   w="100%"
                   colorScheme="red"

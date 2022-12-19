@@ -20,7 +20,7 @@ function Item({data,removeOperation,incrementQuantity,decrementQuantity}) {
  
   return (
 
-    data.map((item)=>(
+    [1,2,3].map((item)=>(
         <Box>
       
 
@@ -44,10 +44,10 @@ function Item({data,removeOperation,incrementQuantity,decrementQuantity}) {
             
           >
             <Box>
-              <Text  w="60%" >{item.name}</Text>
+              <Text  w="60%" >{item.name}Refresh Tears 0.5% Bottle Of 10ml Eye Drops</Text>
             </Box>
             <Box>
-              <Text>₹{item.price1}</Text>
+              <Text>₹{item.price1}150.84</Text>
             </Box>
           </Box>
 
@@ -63,7 +63,7 @@ function Item({data,removeOperation,incrementQuantity,decrementQuantity}) {
               <Text>tube of 100 ml Face Wash</Text>
             </Box>
             <Box>
-              MRP <Text as="s">₹{item.price2}</Text>
+              MRP <Text as="s">₹{item.price2}150.84</Text>
             </Box>
           </Box>
 

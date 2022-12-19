@@ -255,7 +255,7 @@ export const Dropdown=()=>{
 
 
             <Box className={styles.dropdown_category_hoverbox_container}>
-                <Box className={styles.main_category}><NavLink to={'/personalcareproducts'} state={"skincare"}><Text>Personal Care{" "}<ChevronDownIcon boxSize={4}/></Text></NavLink></Box>
+                <Box className={styles.main_category}><NavLink to={'/personalcare'} state={"skincare"}><Text>Personal Care{" "}<ChevronDownIcon boxSize={4}/></Text></NavLink></Box>
 
                 <Box className={styles.hover_box} >
                     <Box display='flex' gap={3}  padding='8px'>

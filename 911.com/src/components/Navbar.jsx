@@ -25,7 +25,7 @@ const Navbar = () => {
 
            <Box>{isAuth?<SlUser/>:<NavLink to={'/signup'}>Login / Signup</NavLink>}</Box>
            <Box><NavLink to='/ayur' state={'ayurvedic'}>Offers</NavLink></Box>
-           <Box><BsCart3 size='21px'/></Box>
+           <Box><NavLink to={'/cart'}><BsCart3 size='21px'/></NavLink></Box>
            <Box><Text>NeedHelp</Text></Box>
        </Flex>
     </Box>

@@ -1,8 +1,13 @@
 import { Box, Button, Image, Link, SimpleGrid, Text } from "@chakra-ui/react";
 import React from "react";
 import ABrandsCard from "../components/Ayurveda/AyuevedaBrandCard";
+import { AFeaturedBrands, AShopbyhealthconcerns, ApopularCategories, ApopularCats, AyurAllProducts } from "../components/Ayurveda/AyurvedData";
 import AyurvedaAllPro from "../components/Ayurveda/AyurvedaAllPro";
-import { AFeaturedBrands, ApopularCategories, ApopularCats, AShopbyhealthconcerns, AyurAllProducts } from "../components/Ayurveda/AyurvedData";
+import Popularcategories from "../components/Ayurveda/AyurvedaPopularCard";
+import Navbar from "../components/Navbar";
+// import ABrandsCard from "../components/Ayurveda/AyuevedaBrandCard";
+// import AyurvedaAllPro from "../components/Ayurveda/AyurvedaAllPro";
+// import { AFeaturedBrands, ApopularCategories, ApopularCats, AShopbyhealthconcerns, AyurAllProducts } from "../components/Ayurveda/AyurvedData";
 
 
 
@@ -11,6 +16,9 @@ export const AyurvedaPage = () =>{
 
   
     return (
+      <>
+       <Navbar/>
+     
         <Box>
           {/* <Carosel /> */}
     
@@ -111,7 +119,7 @@ export const AyurvedaPage = () =>{
               </Button>
             </Link>
           </Box>
-          <ApopularCats something={ApopularCategories} />
+          <Popularcategories something={ApopularCategories} />
         </Box>
 
 
@@ -145,5 +153,6 @@ export const AyurvedaPage = () =>{
 
           </Box>
         </Box>
+        </>
       );
     };

@@ -6,6 +6,7 @@ import { getProduct } from '../store/Appreducer/action';
 import style from '../styles/ProductCard.module.css'
 import ProductCard from '../components/ProductCard';
 import { Box, Select, Text } from '@chakra-ui/react';
+import Navbar from '../components/Navbar';
 const HealthCareDevices = () => {
     const location=useLocation()
     const dispatch = useDispatch();
@@ -16,6 +17,9 @@ const HealthCareDevices = () => {
      dispatch(getProduct(category='healthcareDevices'))
     },[dispatch])
   return (
+    <>
+     <Navbar/>
+
    <Box>
      <Box width={"90%"} margin={'auto'} display={'flex'} alignItems='center' justifyContent='space-between'>
             <h2 className={style.heading_category}>{category}</h2>
@@ -42,6 +46,7 @@ const HealthCareDevices = () => {
                             />)}
     </div>
     </Box>
+    </>
   )
 }
 

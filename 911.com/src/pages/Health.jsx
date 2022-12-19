@@ -4,6 +4,7 @@ import HealthAllProCard from "../components/Health/HealthAllProductCard";
 import BrandsCard from "../components/Health/HealthBrandCard";
 import { AllProducts, Shopbyhealthconcerns, topSellingProducts } from "../components/Health/HealthData"
 import ProductsCard from "../components/Health/HealthProductsCard";
+import Navbar from "../components/Navbar";
 // import BrandsCard from "../components/HealthBrandCard";
 // import { Shopbyhealthconcerns, topSellingProducts } from "../components/HealthData";
 
@@ -14,6 +15,9 @@ export const HealthPage = () =>{
 
   
     return (
+      <>
+       <Navbar/>
+      
         <Box>
           {/* <Carosel /> */}
     
@@ -108,5 +112,6 @@ export const HealthPage = () =>{
             </Box>
           </Box>
         </Box>
+        </>
       );
     };

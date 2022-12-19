@@ -3,6 +3,7 @@ import { Box, Button, Image, Input, Text } from '@chakra-ui/react';
 import React, { Component } from 'react';
 import { Data, DataA } from './ItemCollection';
 import "./Health.css";
+import Navbar from '../Navbar';
 
 class HealthCenter extends Component {
     state = { searchInput: '', alphabet: '' };
@@ -77,6 +78,7 @@ class HealthCenter extends Component {
 
         return (
             <>
+            <Navbar/>
                 <div className='diseaseBox'>
                     {/* <input type="search" placeholder='Search' onChange={this.onSearchInputChange} /> */}
                     <Text w="90%" margin="auto" paddingTop="20px" paddingBottom="20px" textAlign="start" fontSize="28px">

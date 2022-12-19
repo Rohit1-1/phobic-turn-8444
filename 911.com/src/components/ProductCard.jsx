@@ -83,7 +83,8 @@ const ProductCard = ({quantity,price2,price1,off,name,image,category,id}) => {
         <img style={{height:'11rem'}} src={image} alt={name} />
     </div>
     <div className={style.info_box}>
-    <h4 className={style.title}>{name}</h4>
+    <h4 textOverflow="ellipsis"
+ className={style.title}>{name}</h4>
     <p className={style.category} >{category}</p>
     <div className={style.price_box}>
             <div className={style.offPrice_prcnt}>
@@ -94,7 +95,7 @@ const ProductCard = ({quantity,price2,price1,off,name,image,category,id}) => {
     </div>
     <div>
     <p className={style.price}>₹{price1}</p>
-    <Button bgColor={'#ff6f61'} color='white' _hover={{bgColor:'rgb(194, 50, 50)'}}>Add</Button>
+    <Button  bgColor={'#ff6f61'} color='white' _hover={{bgColor:'rgb(194, 50, 50)'}}>Add</Button>
     </div>
     </div>
 </div>

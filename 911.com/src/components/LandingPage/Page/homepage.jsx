@@ -31,9 +31,13 @@ import {
   Trending,
   WinterCollection,
 } from "../Data/products.data";
+import Navbar from "../../Navbar";
 
 const ALLProductsBrands = () => {
   return (
+    <>
+     <Navbar/>
+   
     <Box>
       <Carosel />
 
@@ -631,6 +635,7 @@ const ALLProductsBrands = () => {
         {/* Description */}
       </Box>
     </Box>
+    </>
   );
 };
 

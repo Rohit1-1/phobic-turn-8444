@@ -3,6 +3,11 @@ deploy-link--- https://911-com.vercel.app
  911.com website is a healthcare platform. It provides services, including e-pharmacy, diagnostics, e-consultation and health content.
 
 
+# Tech Stack
+* Frontent :- React js,Redux,HTML,Js,Css,Chakra Ui.
+* Backend :- Express,Mongoose,Mongodb,Node js
+
+
 # Home Page
 ![Screenshot_20221220_125023](https://user-images.githubusercontent.com/101381281/208606971-3a7c3a26-abcb-4428-9ee6-116159ebe8b9.png)
 

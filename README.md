@@ -9,6 +9,12 @@ deploy-link--- phobic-turn-8444
 
 ---
 
+# Sign Up Page
+
+![Screenshot_20221220_125806](https://user-images.githubusercontent.com/101381281/208608215-78375d04-88a9-4e11-b7a6-8f03c72ad0d5.png)
+
+---
+
 # Ayurveda Page
 
 ![Screenshot_20221220_125056](https://user-images.githubusercontent.com/101381281/208607011-b342af57-82b5-4059-a891-04abd15cdbb3.png)

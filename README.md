@@ -14,3 +14,8 @@ deploy-link--- phobic-turn-8444
 ![Screenshot_20221220_125056](https://user-images.githubusercontent.com/101381281/208607011-b342af57-82b5-4059-a891-04abd15cdbb3.png)
 
 ---
+
+# All Disease Page
+
+
+![Screenshot_20221220_125627](https://user-images.githubusercontent.com/101381281/208607928-1177d250-f7ee-470f-9789-f9d8bda2c910.png)

@@ -4,6 +4,13 @@ Tata 1mg, previously 1mg, is a healthcare platform based in Gurugram, India. It 
 
 
 # Home Page
-![GetHarvest-HomePage](https://user-images.githubusercontent.com/101381281/204876207-391fa84c-2a1f-4a43-8402-bb35e38a94d9.png)
+![Screenshot_20221220_125023](https://user-images.githubusercontent.com/101381281/208606971-3a7c3a26-abcb-4428-9ee6-116159ebe8b9.png)
+
+
+---
+
+# Ayurveda Page
+
+![Screenshot_20221220_125056](https://user-images.githubusercontent.com/101381281/208607011-b342af57-82b5-4059-a891-04abd15cdbb3.png)
 
 ---

@@ -8,6 +8,8 @@ module.exports = userRoute = express.Router();
 
 userRoute.post("/signup", async (req, res) => {
   const { email, password, name, phonenumber, address, pincode, gender } = req.body;
+
+
 console.log(req.body);
   try {
    const user = await UserModel.find({ email });
@@ -55,8 +57,8 @@ userRoute.post("/login", async (req, res) => {
                   var token = jwt.sign({ "userId": user[0]._id }, process.env.SECRET_KEY);
                   res.send({"msg":"login successfull","login":true,"token":token,"user":userData})
                  
-              }
-              else{
+              } 
+             else{
                 res.status(404).send({"msg":"login fail","login":false})
               }
           });
@@ -70,12 +72,13 @@ userRoute.post("/login", async (req, res) => {
   }
  
   userRoute.get("/alluser",adminValidation ,async (req, res) => {
-
+  
       try {
         let users=await UserModel.find({})
        // console.log(users);
         res.send(users)
       } catch (error) {
+        console.log(error);
         res.send({"msg":"something Went wrong "})
       }        
   });

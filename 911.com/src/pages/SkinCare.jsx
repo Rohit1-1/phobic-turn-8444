@@ -26,9 +26,9 @@ const SkinCareProducts = () => {
             <Box width={"30%"} border='1px solid black' display={'flex'} alignItems='center' justifyContent='space-between'>
                 <Text fontSize='14px' color='#212121'>Sort By :</Text>
             <Select width={'70%'} fontSize='14px' color='#212121'>
-                <option value="">AVCACVAVC</option>
-                <option value="">AVCACVAVC</option>
-                <option value="">AVCACVAVC</option>
+                <option value="">By price</option>
+                <option value="">By offer</option>
+                <option value="">By name</option>
             </Select>
             </Box>
             

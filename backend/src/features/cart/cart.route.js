@@ -42,7 +42,7 @@ cartRoute.post("/addtocart",async(req,res)=>{
   console.log(userId,id);
   try {
      const prod=await Cart.find({productId:id,userId})
-     console.log(prod,id);
+    // console.log(prod,id);
      if(prod.length>0){
       res.send({"msg":"Already in cart"})
      }
@@ -62,7 +62,7 @@ cartRoute.post("/addtocart",async(req,res)=>{
 cartRoute.get("/cartproduct",async(req,res)=>{
   let {userId}=req.body;
   
-  console.log(userId);
+  //console.log(userId);
   try {
     const cartproduct=await Cart.find({userId})
    
@@ -77,18 +77,74 @@ cartRoute.get("/cartproduct",async(req,res)=>{
 
 cartRoute.delete("/:id", async (req, res) => {
   const { id } = req.params;
+  const productId=req.headers.productid
   const {userId}=req.body
-  console.log("Id:", id);
+  const orderquantity=+req.headers.orderquantity;
+ // console.log("Id:",'productId',req.headers,typeof(orderquantity));
   try {
-      const cartItem=await Cart.findOne({userId,productId:id})
-     await Cart.deleteOne({userId,productId:id})
+     await Cart.deleteOne({userId,_id:id})
     await Product.findByIdAndUpdate(
-      { _id: id},
-      { $inc: { quantity: cartItem.orderquantity } }
+      { _id: productId},
+      { $inc: { quantity: orderquantity } }
     );
     res.send({"msg":"Item deleted Successfully"});
   } catch (error) {
+    console.log(error);
     res.send({ err: "Something went wrong" });
+  }
+});
+
+
+cartRoute.patch("/addmore", async (req, res) => {
+  let {userId}=req.body;
+  const {id}=req.body;
+  const {productId}=req.body;
+  const {orderquantity}=req.body;
+  const {type}=req.body
+  console.log(userId,id,orderquantity);
+ 
+  try {
+    let prod=await Product.findById({_id:productId})
+    console.log(prod.quantity);
+     
+    if(prod.quantity===0&type!=='dec'){
+      res.send({"msg":"Out of stock"})
+    }
+    else if(type==='inc'){
+      await Cart.updateOne({_id:id,userId},{$inc:{orderquantity: orderquantity}})
+      await Product.findByIdAndUpdate({ _id:productId}, {$inc:{quantity: -orderquantity}})
+        res.send({"msg":"Added more"})
+    }
+    else if(type==='dec'){
+      // console.log(type,'dec');   
+       await Cart.updateOne({_id:id,userId},{$inc:{orderquantity: -orderquantity}})
+      await Product.findByIdAndUpdate({ _id:productId}, {$inc:{quantity: +orderquantity}})
+        res.send({"msg":"Quantity decs"})
+    }
+    else{
+      res.send({'msg':"Something went wrong"})
+    }
+ 
+     
+    
+  } catch (error) {
+    console.log(error);
+    res.send({'msg':"Something went wrong"})
+  }
+});
+
+
+cartRoute.delete("/orderplaced/:id", async (req, res) => {
+  let {userId}=req.body;
+console.log(userId);
+  try {
+     await Cart.deleteMany({userId})
+
+    res.send({'msg':"Order Placed"})
+  
+  } catch (error) {
+    console.log(error);
+    res.send({'msg':"Something went wrong"})
   }
 });
 

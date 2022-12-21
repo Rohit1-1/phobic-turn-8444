@@ -104,6 +104,7 @@ const ProductCard = ({
                 bgColor={"#ff6f61"}
                 color="white"
                 _hover={{ bgColor: "rgb(194, 50, 50)" }}
+                disabled
               >
                 Out of Stock
               </Button>

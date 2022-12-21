@@ -23,7 +23,7 @@ const Product = () => {
     }
     //<button className={style.add_product_btn}>Add Product</button>
   return (
-    <div  style={isopen?{width:"85%",float:"right",border:'1px solid red'}:{width:"96%",float:"right"}}>
+    <div  style={isopen?{width:"85%",float:"right"}:{width:"96%",float:"right"}}>
        <div className={style.add_product_cont} style={{display:"block",marginTop:"1rem"}}><button onClick={()=>setOpenAddform(!openAddForm)} className={style.add_product_btn}>Add Product</button>
        <h3 style={{marginTop:"10px"}}>Products : {data.length}</h3>
 

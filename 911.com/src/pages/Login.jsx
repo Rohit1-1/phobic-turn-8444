@@ -88,6 +88,7 @@ import { Signin, Signin_failure } from "../store/Authreducer/action";
   
     return (
       <>
+      <Navbar/>
         <Flex
           minH={"100vh"}
           align={"center"}

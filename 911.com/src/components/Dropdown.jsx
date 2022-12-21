@@ -13,7 +13,7 @@ export const Dropdown=()=>{
 
                 <Box className={styles.hover_box} padding={4}>
                     <NavLink className={styles.hover_box_category_heading}>All Medicines</NavLink>
-                    <NavLink className={styles.hover_box_category_heading}>All Diseases</NavLink>
+                    <NavLink to={'/alldisease'} className={styles.hover_box_category_heading}>All Diseases</NavLink>
                     <NavLink className={styles.hover_box_category_heading}>Medicines by Therapeutic Class</NavLink>
                 </Box>
                
@@ -255,7 +255,7 @@ export const Dropdown=()=>{
 
 
             <Box className={styles.dropdown_category_hoverbox_container}>
-                <Box className={styles.main_category}><NavLink to={'/personalcareproducts'} state={"skincare"}><Text>Personal Care{" "}<ChevronDownIcon boxSize={4}/></Text></NavLink></Box>
+                <Box className={styles.main_category}><NavLink to={'/personalcare'} state={"skincare"}><Text>Personal Care{" "}<ChevronDownIcon boxSize={4}/></Text></NavLink></Box>
 
                 <Box className={styles.hover_box} >
                     <Box display='flex' gap={3}  padding='8px'>
@@ -433,7 +433,7 @@ export const Dropdown=()=>{
 
 
             <Box className={styles.dropdown_category_hoverbox_container}>
-                <Box className={styles.main_category}><NavLink to={'/ayurvedicproduct'} state={'ayurvedic'}><Text>Ayurveda Products{" "}<ChevronDownIcon boxSize={4}/></Text></NavLink></Box>
+                <Box className={styles.main_category}><NavLink to={'/ayurveda'} state={'ayurvedic'}><Text>Ayurveda Products{" "}<ChevronDownIcon boxSize={4}/></Text></NavLink></Box>
 
                 <Box className={`${styles.hover_box} ${styles.ayurveda_box}`} >
                     <Box display='flex' gap={3}  padding='8px'>

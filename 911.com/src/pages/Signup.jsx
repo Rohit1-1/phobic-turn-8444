@@ -21,6 +21,7 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { Link as BrowseLink,} from "react-router-dom";
 import { Signup } from "../store/Authreducer/action";
+import Navbar from "../components/Navbar";
 
 
 export default function SignupCard() {
@@ -35,7 +36,7 @@ export default function SignupCard() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+  console.log(name,value);
       setUserData({
         ...userData,
         [name]: value,
@@ -99,6 +100,9 @@ export default function SignupCard() {
 
 
   return (
+    <>
+     <Navbar/>
+    
     <Box  bg={"#fffcf8"} marginBottom={50}>
       <Flex
         minH={"100vh"}
@@ -219,5 +223,6 @@ export default function SignupCard() {
         </Stack>
       </Flex>
     </Box>
+    </>
   );
 }

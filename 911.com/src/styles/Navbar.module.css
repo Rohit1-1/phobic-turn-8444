@@ -5,7 +5,28 @@
     /* border: 1px solid black; */
     background-color: white;
 }
-
+.cart_cont{
+    /* border: 1px solid black; */
+    width: 3%;
+    height: 100%;
+    position: relative;
+}
+.cartquantity{
+position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 5px;
+top: -30%;
+right: 11%;
+height: 18px;
+width: 18px;
+border: 1px solid black;
+font-size: medium;
+font-weight: 600;
+color: white;
+background-color: red;
+}
 .dropdown_broder{
     border: none;
     padding:0;

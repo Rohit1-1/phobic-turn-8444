@@ -4,6 +4,7 @@ import PersonalAllProCard from "../components/Personal/PersonalAllProPage";
 import { PAllProducts, PersonalFeaturedBrands, personalPopularCategories, topSellingProducts } from "../components/Personal/PersonalData";
 import { PersonalPopularcategoriesCard } from "../components/Personal/PersonalPopularCategories";
 import { PersonalProductsCard } from "../components/Personal/PersonalProductCard";
+import Navbar from "../components/Navbar";
 
 
 
@@ -11,6 +12,9 @@ export const PersonalCarePage = () => {
 
 
     return (
+        <>
+         <Navbar/>
+       
         <Box>
 
             <Box bg="#f6f6f6">
@@ -152,5 +156,6 @@ export const PersonalCarePage = () => {
 
             </Box>
         </Box>
+        </>
     );
 };

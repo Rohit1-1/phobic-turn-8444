@@ -4,32 +4,30 @@ import React from "react";
 import "react-multi-carousel/lib/styles.css";
 
 const HealthAllProCard = ({ something, prodVal = 6 }) => {
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: prodVal,
-            slidesToSlide: 3, 
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 3,
-            slidesToSlide: 2, 
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1, 
-        },
-    };
+    // const responsive = {
+    //     desktop: {
+    //         breakpoint: { max: 3000, min: 1024 },
+    //         items: prodVal,
+    //         slidesToSlide: 3, 
+    //     },
+    //     tablet: {
+    //         breakpoint: { max: 1024, min: 464 },
+    //         items: 3,
+    //         slidesToSlide: 2, 
+    //     },
+    //     mobile: {
+    //         breakpoint: { max: 464, min: 0 },
+    //         items: 1,
+    //         slidesToSlide: 1, 
+    //     },
+    // };
 
     return (
-        <Box bg="white" p="1rem" height="400px" width={"1200px"} border="1x solid green">
-<Grid templateColumns='repeat(5, 1fr)' gap={1} margin={"auto"}>
+        <Box bg="white" p="1rem" width={"90%"} margin={'auto'} border="1x solid green">
+<Grid templateColumns={{base:"repeat(2,1fr)",md:"repeat(3 ,1fr)",lg:'repeat(4 ,1fr)'}} gap={1} margin={"auto"}>
 
                 {something.map((e, i) => (
                     <Box
-                        h={"370px"}
-                        w={"250px"}
                         // border="solid red 1px"
                         p="0.5rem"
                         key={i}
@@ -60,16 +58,16 @@ const HealthAllProCard = ({ something, prodVal = 6 }) => {
                             </Text>
                             <Text fontWeight={"600"} marginTop={"4px"}>₹ {e.price}</Text>
                         </Box>
-                        <Card>
-                            <CardFooter>
+                        <Box  marginTop={'1rem'}>
+                           
                                 <ButtonGroup spacing='2'>
-                                    <Button variant='solid' colorScheme='purple'>
+                                    <Button color={'white'} variant='solid' bgColor={'#ff6f61'}>
                                     Add to cart
                                     </Button>
                                    
                                 </ButtonGroup>
-                            </CardFooter>
-                        </Card>
+                          
+                        </Box>
 
                     </Box>
 

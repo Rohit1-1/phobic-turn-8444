@@ -5,7 +5,6 @@ import {
     Text,
     Button,
     ButtonGroup,
-    Heading,
     Checkbox
   } from "@chakra-ui/react";
   import { ChevronRightIcon,InfoOutlineIcon,LockIcon } from "@chakra-ui/icons";

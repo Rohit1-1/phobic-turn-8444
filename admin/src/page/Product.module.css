@@ -3,7 +3,7 @@
     justify-content: center;
     margin: auto;
     margin-top: 1.5rem;
-    border: 1px solid rgb(69, 7, 214);
+    /* border: 1px solid rgb(69, 7, 214); */
     display: flex;
     flex-wrap: wrap;
  gap: 20px;

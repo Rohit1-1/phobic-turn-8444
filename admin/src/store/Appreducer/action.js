@@ -77,7 +77,7 @@ export const getProduct=(num=1)=>(dispatch)=>{
     dispatch(updateProduct_request())
     let token=getData('admintoken')
   try {
-    return axios.get(`${url}/product/allproduct`,payload,{
+    return axios.patch(`${url}/product/allproduct`,payload,{
         headers:{
             authorization :`Bearer ${token}`
         }

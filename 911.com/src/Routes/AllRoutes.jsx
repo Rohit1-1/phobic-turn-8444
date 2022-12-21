@@ -13,7 +13,10 @@ import Diabetes from '../pages/Diabetes'
 import SkinCareProducts from '../pages/SkinCare'
 import BabyCareProducts from '../pages/BabyCare'
 import VitaminsProducts from '../pages/Vitamiin'
-
+import Cart from '../Cart/Cart'
+import Payment from '../Cart/Payment'
+import PrivateRoute from './PrivateRoute'
+// https://admin-alpha-liard.vercel.app
 const AllRoutes = () => {
   return (
     <>
@@ -31,6 +34,8 @@ const AllRoutes = () => {
         <Route path='/personalcareproducts/skincare' element={<SkinCareProducts/>}/>
         <Route path='/personalcareproducts/babycare' element={<BabyCareProducts/>}/>
         <Route path='/vitaminsproducts' element={<VitaminsProducts/>}/>  
+        <Route path='/cart' element={<PrivateRoute><Cart/></PrivateRoute>}/>
+        <Route path='/payment' element={<PrivateRoute><Payment/></PrivateRoute>}/>
       </Routes>
     </>
   )

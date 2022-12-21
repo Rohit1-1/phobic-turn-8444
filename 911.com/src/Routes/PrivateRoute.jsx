@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
 const PrivateRoute = ({children}) => {
-    const {isAdmin}=useSelector((store)=>store.Authreducer)
-    if(!isAdmin){
+    const {isAuth}=useSelector((store)=>store.Authreducer)
+    if(!isAuth){
         return <Navigate to={'/login'}/>
     }
   return children

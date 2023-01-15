@@ -7,10 +7,11 @@ import style from '../styles/ProductCard.module.css'
 import ProductCard from '../components/ProductCard';
 import { Box, Select, Text } from '@chakra-ui/react';
 import Navbar from '../components/Navbar';
+import Loading from '../components/Loading';
 const HealthCareDevices = () => {
     const location=useLocation()
     const dispatch = useDispatch();
-    const {productdata}=useSelector((store)=>store.Appreducer)
+    const {productdata,isLoading}=useSelector((store)=>store.Appreducer)
     let category=location.state || ""
 
     useEffect(()=>{
@@ -19,8 +20,7 @@ const HealthCareDevices = () => {
   return (
     <>
      <Navbar/>
-
-   <Box>
+     {isLoading ? <Loading/>: <Box>
      <Box width={"90%"} margin={'auto'} display={'flex'} alignItems='center' justifyContent='space-between'>
             <h2 className={style.heading_category}>{category}</h2>
             <Box width={"30%"} border='1px solid black' display={'flex'} alignItems='center' justifyContent='space-between'>
@@ -45,7 +45,9 @@ const HealthCareDevices = () => {
 
                             />)}
     </div>
-    </Box>
+    </Box>}
+
+  
     </>
   )
 }

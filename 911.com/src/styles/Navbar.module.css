@@ -1,133 +1,131 @@
-.nav{
-    position: sticky;
-    top: 0;
-    z-index: 1200;
-    /* border: 1px solid black; */
-    background-color: white;
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  /* border: 1px solid black; */
+  background-color: white;
 }
-.cart_cont{
-    /* border: 1px solid black; */
-    width: 3%;
-    height: 100%;
-    position: relative;
+.cart_cont {
+  /* border: 1px solid black; */
+  width: 3%;
+  height: 100%;
+  position: relative;
 }
-.cartquantity{
-position: absolute;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 5px;
-top: -30%;
-right: 11%;
-height: 18px;
-width: 18px;
-border: 1px solid black;
-font-size: medium;
-font-weight: 600;
-color: white;
-background-color: red;
+.cartquantity {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  top: -30%;
+  right: 11%;
+  height: 18px;
+  width: 18px;
+  border: 1px solid black;
+  font-size: medium;
+  font-weight: 600;
+  color: white;
+  background-color: red;
 }
-.dropdown_broder{
-    border: none;
-    padding:0;
-    /* position: absolute;
+.dropdown_broder {
+  border: none;
+  padding: 0;
+  /* position: absolute;
     top: 0; */
-    border: 1px solid black;
-    /* left: 100000%;
+  border: 1px solid black;
+  /* left: 100000%;
     bottom: 100%; */
-    margin: 0;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  margin: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 
+.dropdown_container {
+  width: 97%;
+  margin: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  /* background-color: white; */
+  padding: 1px 0px 14px 0px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  z-index: 1200;
+}
+.covid_box {
+  right: 3%;
+}
 
-.dropdown_container{
-    width: 97%;
-    margin: auto;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    /* background-color: white; */
-    padding: 1px 0px 14px 0px;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
-    z-index: 1200;
+.hover_box {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  position: absolute;
+  /* border: 1px solid black; */
+  z-index: 1200;
+  background-color: white;
+  display: none;
 }
-.covid_box{
-    right: 3%;
+.hover_box_breakpoint {
+  right: 31%;
+  /* border: 1px solid green; */
 }
-
-.hover_box{
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    position: absolute;
-    /* border: 1px solid black; */
-    z-index: 1200;
-    background-color: white;
-    display: none;
+.ayurveda_box {
+  right: 25%;
 }
-.hover_box_breakpoint{
-    right: 31%;
-    /* border: 1px solid green; */
+.Homeopathy_box {
+  right: 12%;
 }
-.ayurveda_box{
-    right: 25%;
+.hover_sub_category_box {
+  padding: 10px 11px 1px 18px;
+  /* border: 1px solid black; */
+  border-left: 1px solid #757575;
 }
-.Homeopathy_box{
-    right: 12%;
+.hover_sub_category_box_last {
+  padding: 10px 15px 1px 18px;
+  border-left: 1px solid #757575;
+  margin-left: 8px;
+  /* border: 1px solid black; */
 }
-.hover_sub_category_box{
-    padding:10px 11px 1px 18px;
-    /* border: 1px solid black; */
-    border-left: 1px solid #757575;
+.hover_box_category_heading {
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+  font-size: 13px;
+  text-align: left;
+  color: #212121;
+  font-weight: 700;
+  margin-bottom: 9px;
 }
-.hover_sub_category_box_last{
-    padding:10px 15px 1px 18px;
-    border-left: 1px solid #757575;
-    margin-left: 8px;
-     /* border: 1px solid black; */
+.hover_box_category_heading:hover {
+  color: #ff6f61;
 }
-.hover_box_category_heading{
-    padding-left: 0;
-    padding-right: 0;
-    display: block;
-    font-size: 13px;
-    text-align: left;
-    color: #212121;
-    font-weight: 700;
-    margin-bottom: 9px;
-   
+.hover_box_category_text:hover {
+  color: #ff6f61;
 }
-.hover_box_category_heading:hover{
-    color: #ff6f61;
+.border {
+  /* border: 1px solid black; */
+  margin-bottom: 1.2rem;
 }
-.hover_box_category_text:hover{
-    color: #ff6f61;
+.hover_box_category_text {
+  color: #757575;
+  display: block;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 8px;
 }
-.border{
-/* border: 1px solid black; */
-margin-bottom: 1.2rem;
+.main_category {
+  /* border: 1px solid black; */
+  color: #212121;
+  font-size: 14px;
 }
-.hover_box_category_text{
-    color: #757575;
-    display: block;
-    font-size: 12px;
-    text-align: left;
-    margin-bottom: 8px;
+.main_category:hover {
+  color: #ff6f61;
 }
-.main_category{
-/* border: 1px solid black; */
-color: #212121;
-font-size: 14px;
-}
-.main_category:hover{
-    color: #ff6f61;
-}
-.dropdown_category_hoverbox_container:hover .hover_box{
-    display: block;
+.dropdown_category_hoverbox_container:hover .hover_box {
+  display: block;
 }
 /* .main_category:hover{
     color: blue;
 } */
 
-@media (max-width: 1000px){
-    .hover_box_breakpoint{
-        right: 8%;
-    }
+@media (max-width: 1000px) {
+  .hover_box_breakpoint {
+    right: 8%;
+  }
 }

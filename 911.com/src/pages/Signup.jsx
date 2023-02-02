@@ -19,13 +19,14 @@ import {
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { Link as BrowseLink } from "react-router-dom";
+import { Link as BrowseLink, useNavigate } from "react-router-dom";
 import { Signup } from "../store/Authreducer/action";
 import Navbar from "../components/Navbar";
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
+  const navigate=useNavigate()
   const [userData, setUserData] = useState({});
   const [isInvalid, setisInvalid] = useState(false);
 
@@ -67,6 +68,7 @@ export default function SignupCard() {
             duration: 5000,
             isClosable: true,
           });
+           navigate('/login')
         } else if (res === "User already exits, Please try login") {
           toast({
             title: "Signup Failed",

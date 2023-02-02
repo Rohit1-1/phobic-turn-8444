@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  Button,
-  useToast,
-} from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
 import style from "../styles/ProductCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addtoCart } from "../store/Appreducer/action";
@@ -20,9 +17,9 @@ const ProductCard = ({
 }) => {
   const toast = useToast();
   const dispatch = useDispatch();
-  const navigate=useNavigate()
-  const {isAuth}=useSelector((store)=>store.Authreducer)
-  const token=getData('token')
+  const navigate = useNavigate();
+  const { isAuth } = useSelector((store) => store.Authreducer);
+  const token = getData("token");
   const handleClick = () => {
     let orderquantity = 1;
     let payload = {
@@ -35,10 +32,9 @@ const ProductCard = ({
       id,
       orderquantity,
     };
-    if(isAuth&&token){
-      dispatch(addtoCart(payload)).then((res)=>{
-      
-        if(res==='Already in cart'){
+    if (isAuth && token) {
+      dispatch(addtoCart(payload)).then((res) => {
+        if (res === "Already in cart") {
           toast({
             title: "Item is already in the cart",
             status: "warning",
@@ -46,8 +42,7 @@ const ProductCard = ({
             duration: 5000,
             isClosable: true,
           });
-        }
-        else if(res==="Added to cart"){
+        } else if (res === "Added to cart") {
           toast({
             title: "Added to cart",
             status: "success",
@@ -55,8 +50,7 @@ const ProductCard = ({
             duration: 5000,
             isClosable: true,
           });
-        }
-        else{
+        } else {
           toast({
             title: "Something went wrong",
             status: "success",
@@ -65,19 +59,17 @@ const ProductCard = ({
             isClosable: true,
           });
         }
-      })
+      });
+    } else {
+      toast({
+        title: "Please Login First",
+        status: "error",
+        position: "top",
+        duration: 5000,
+        isClosable: true,
+      });
+      navigate("/login");
     }
-   else{
-    toast({
-      title: "Please Login First",
-      status: "error",
-      position: "top",
-      duration: 5000,
-      isClosable: true,
-    });
-    navigate('/login')
-   }
-    
   };
 
   return (

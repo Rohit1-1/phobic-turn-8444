@@ -39,7 +39,6 @@ export const getProduct_failure = () => {
 export const addtoCart = (payload) => (dispatch) => {
   let token = getData("token");
   console.log(token);
-  dispatch(getProduct_request());
   try {
     return axios
       .post(`${url}/cart/addtocart`, payload, {
@@ -61,7 +60,6 @@ export const addtoCart = (payload) => (dispatch) => {
 export const getCartdata = () => (dispatch) => {
   let token = getData("token");
   //console.log(token);
-  dispatch(getProduct_request());
   try {
     return axios
       .get(`${url}/cart/cartproduct`, {

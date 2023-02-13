@@ -9,14 +9,15 @@ import {
 } from "@chakra-ui/react";
 import logo from '../assets/logo.png'
 import { IoIosSearch } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 function CartNavBar() {
   return (
     <Box bg="#fff" borderBottom="1px solid #f1f4f6">
       <Flex gap="2" minWidth="max-content" alignItems="center">
-        <Box>
+        <NavLink to={'/'}>
           <Image src={logo} alt="911.com" width="80%" />
-        </Box>
+        </NavLink>
         <Box
           w="50%"
           p="4"

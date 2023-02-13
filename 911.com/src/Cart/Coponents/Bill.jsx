@@ -13,7 +13,7 @@ function Bill() {
   useEffect(()=>{
   dispatch(getCartdata())
   },[dispatch])
-  console.log(cartdata);
+ // console.log(cartdata);
   let totalPrice;
   let discountPrice;
   try {
@@ -23,7 +23,7 @@ function Bill() {
     console.log(error);
   }
    
-  console.log(totalPrice,discountPrice);
+ // console.log(totalPrice,discountPrice);
   return (
     <Box mt="16px" shadow="0 1px 2px 0 rgb(0 0 0 / 20%)"  borderRadius="2px">
   <Box

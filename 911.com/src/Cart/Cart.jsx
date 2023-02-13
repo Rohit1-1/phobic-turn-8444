@@ -9,7 +9,8 @@ import {
   Checkbox,
   Select,
   Icon,
-  Link
+  Link,
+  useToast
 } from "@chakra-ui/react";
 import { ChevronRightIcon, InfoOutlineIcon, LockIcon } from "@chakra-ui/icons";
 import { MdLocationOn } from "react-icons/md";
@@ -27,6 +28,7 @@ import { deleteCart, getCartdata, updateCart } from "../store/Appreducer/action"
 // import Adress from "./Adress";
 
 function Cart() {
+  const toast = useToast();
   const {cartdata}=useSelector((store)=>store.Appreducer);
   const dispatch=useDispatch()
   
@@ -36,7 +38,18 @@ function Cart() {
   },[dispatch])
   const handleIncrease=(name,price1,price2,category,id,productId)=>{
     const payload={name,price1,price2,orderquantity:1,category,id,productId,type:"inc"}
-     dispatch(updateCart(payload))
+     dispatch(updateCart(payload)).then((res)=>{
+      if(res===`Out of stock`){
+        toast({
+          title: "Out of Stock",
+          status: "warning",
+          position: "top",
+          duration: 5000,
+          isClosable: true,
+        });
+      }
+      
+     })
   }
   const handleDecrease=(name,price1,price2,category,id,productId)=>{
     const payload={name,price1,price2,orderquantity:1,category,id,productId,type:"dec"}

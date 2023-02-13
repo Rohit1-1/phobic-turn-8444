@@ -36,7 +36,7 @@ const PersonalAllProCard = ({ something, prodVal = 6 }) => {
       p="1rem"
     //   height="400px"
       width={"90%"}
-      border="1x solid green"
+     margin={'auto'}
     >
       <Grid templateColumns={{base:"repeat(2,1fr)",md:"repeat(3 ,1fr)",lg:'repeat(4 ,1fr)'}} gap={1} >
         {something.map((e, i) => (

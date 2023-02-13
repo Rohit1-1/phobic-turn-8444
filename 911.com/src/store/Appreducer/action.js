@@ -9,15 +9,15 @@ import {
 import { getData } from "../../utils/storage";
 
 export const getProduct =
-  (category, limit = 50) =>
+  (category,page, limit = 50) =>
   (dispatch) => {
     dispatch(getProduct_request());
     try {
       return axios
-        .get(`${url}/product?category=${category}&limit=${limit}`)
+        .get(`${url}/product?category=${category}&page=${page}&limit=${limit}`)
         .then((res) => {
-          dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data });
-          console.log(res);
+          dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data});
+          //console.log(res);
         });
     } catch (error) {
       dispatch(getProduct_failure());
@@ -38,7 +38,7 @@ export const getProduct_failure = () => {
 
 export const addtoCart = (payload) => (dispatch) => {
   let token = getData("token");
-  console.log(token);
+  //console.log(token);
   try {
     return axios
       .post(`${url}/cart/addtocart`, payload, {
@@ -50,7 +50,9 @@ export const addtoCart = (payload) => (dispatch) => {
         //console.log(res);
         // dispatch({type:GET_PRODUCT_SUCCESS,payload:res.data})
         dispatch(getCartdata());
+        //console.log(res)
         return res.data.msg;
+        
       });
   } catch (error) {
     dispatch(getProduct_failure());
@@ -68,7 +70,7 @@ export const getCartdata = () => (dispatch) => {
         },
       })
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         dispatch({ type: GET_CART_DATA_PRODUCT_SUCCESS, payload: res.data });
         return res.data.msg;
       });
@@ -90,7 +92,7 @@ export const updateCart = (payload) => (dispatch) => {
       })
       .then((res) => {
         // dispatch({type:GET_PRODUCT_SUCCESS,payload:res.data})
-        console.log(res);
+       // console.log(res);
         dispatch(getCartdata());
         return res.data.msg;
       });

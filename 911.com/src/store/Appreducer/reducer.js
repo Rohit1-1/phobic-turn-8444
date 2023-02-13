@@ -9,6 +9,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   productdata: [],
+  totalPage:0,
   cartdata: [],
 };
 
@@ -35,7 +36,8 @@ export const reducer = (state = initialState, { type, payload }) => {
         ...state,
         isLoading: false,
         isError: false,
-        productdata: payload,
+        productdata: payload.product,
+        totalPage:payload.totalPage
       };
     }
     case GET_CART_DATA_PRODUCT_SUCCESS: {

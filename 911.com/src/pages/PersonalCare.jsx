@@ -10,13 +10,14 @@ import {
 import { PersonalPopularcategoriesCard } from "../components/Personal/PersonalPopularCategories";
 import { PersonalProductsCard } from "../components/Personal/PersonalProductCard";
 import Navbar from "../components/Navbar";
+import { NavLink } from "react-router-dom";
 
 export const PersonalCarePage = () => {
   return (
     <>
       <Navbar />
 
-      <Box>
+      <Box >
         <Box bg="#f6f6f6">
           <Text
             textAlign="center"
@@ -46,10 +47,10 @@ export const PersonalCarePage = () => {
               <Text fontWeight={"400"} lineHeight={"26px"} fontSize={"22px"}>
                 Shop By categories
               </Text>
-              <Link
-                href="http://localhost:3000/allProducts"
-                target="_blank"
-                textDecoration="none"
+              <NavLink
+               to={"/personalcareproducts/skincare"}
+               state={"skincare"}
+               textDecoration="none"
               >
                 <Button
                   bgColor="#ff6f61"
@@ -63,7 +64,7 @@ export const PersonalCarePage = () => {
                 >
                   SEE ALL
                 </Button>
-              </Link>
+              </NavLink>
             </Box>
             <PersonalPopularcategoriesCard
               something={personalPopularCategories}
@@ -82,10 +83,10 @@ export const PersonalCarePage = () => {
               <Text fontWeight={"400"} lineHeight={"26px"} fontSize={"22px"}>
                 Top deals
               </Text>
-              <Link
-                href="http://localhost:3000/allProducts"
-                target="_blank"
-                textDecoration="none"
+              <NavLink
+               to={"/personalcareproducts/skincare"}
+               state={"skincare"}
+               textDecoration="none"
               >
                 <Button
                   bgColor="#ff6f61"
@@ -99,7 +100,7 @@ export const PersonalCarePage = () => {
                 >
                   SEE ALL
                 </Button>
-              </Link>
+              </NavLink>
             </Box>
             <PersonalProductsCard something={topSellingProducts} />
           </Box>
@@ -123,9 +124,9 @@ export const PersonalCarePage = () => {
               <Text fontWeight={"400"} lineHeight={"26px"} fontSize={"22px"}>
                 Ayurveda personal care store
               </Text>
-              <Link
-                href="http://localhost:3000/allProducts"
-                target="_blank"
+              <NavLink
+                to={"/personalcareproducts/skincare"}
+                state={"skincare"}
                 textDecoration="none"
               >
                 <Button
@@ -140,7 +141,7 @@ export const PersonalCarePage = () => {
                 >
                   SEE ALL
                 </Button>
-              </Link>
+              </NavLink>
             </Box>
             <PersonalPopularcategoriesCard something={PersonalFeaturedBrands} />
           </Box>
@@ -165,9 +166,9 @@ export const PersonalCarePage = () => {
               <Text fontWeight={"400"} lineHeight={"26px"} fontSize={"22px"}>
                 All Products
               </Text>
-              <Link
-                href="http://localhost:3000/allProducts"
-                target="_blank"
+              <NavLink
+                to={"/personalcareproducts/skincare"}
+                state={"skincare"}
                 textDecoration="none"
               >
                 <Button
@@ -182,7 +183,7 @@ export const PersonalCarePage = () => {
                 >
                   SEE ALL
                 </Button>
-              </Link>
+              </NavLink>
             </Box>
             <PersonalAllProCard something={PAllProducts} />
           </Box>

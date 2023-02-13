@@ -73,7 +73,7 @@ const ProductCard = ({
   };
 
   return (
-    <div className={style.singlecard}>
+    <div className={style.singlecard} >
       <div>
         <img style={{ height: "11rem" }} src={image} alt={name} />
       </div>
